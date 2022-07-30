@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneakers</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Components: Gallery Lightbx - Desktop Only -->
+    <div id="lightbox" class="lightbox display-none">
+        <div class="lb-wrapper">
+            <img src="img/icon-close.svg" alt="" class="btn-lb-close" onclick="closeLightbox()">
+            <img id="lb-img-large" class="img-rounded" src="img/image-product-1.jpg" alt="">
+            <div class="lb-thumbnail-grid">
+                <img id="lb1" class="thumb img-rounded thumbnail-selected" src="img/image-product-1-thumbnail.jpg" alt="" onclick="imgChange(1)">
+                <img id="lb2" class="thumb img-rounded thumbnail-default" src="img/image-product-2-thumbnail.jpg" alt="" onclick="imgChange(2)">
+                <img id="lb3" class="thumb img-rounded thumbnail-default" src="img/image-product-3-thumbnail.jpg" alt="" onclick="imgChange(3)">
+                <img id="lb4" class="thumb img-rounded thumbnail-default" src="img/image-product-4-thumbnail.jpg" alt="" onclick="imgChange(4)">
+            </div> 
+        </div>
+        <!-- Navigation buttons --> 
+        <div class="lb-nav">
+            <img src="img/icon-previous.svg" alt="" class="btn-lb-prev round-buttons" onclick="lbPrevious()">
+            <img src="img/icon-next.svg" alt="" class="btn-lb-next round-buttons" onclick="lbNext()">
+        </div>    
+    </div>
+
+    
+
+    <header>
+        <!-- Menu Open Button / Mobile Only / Run JS function on click; -->
+        <img src="img/icon-menu.svg" alt="" aria-label="open menu" class="open-mobile-menu" onclick="openMenu()"/>
+        
+        <a href=""><img src="img/logo.svg" alt="company logo" class="logo"/></a >
+        
+        <nav id="main-menu" class="nav-1" aria-label="main menu">
+            <!-- Menu Close Button / Mobile Only / Run JS function on click; -->
+            <img src="img/icon-close.svg" alt="" aria-label="close menu" class = "close-mobile-menu" onclick="closeMenu()"/> 
+            
+            <ul class="menu-items">
+                <li><a href="">Collections</a></li>
+                <li><a href="">Men</a></li>
+                <li><a href="">Women</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+
+        <nav class="nav-2 push">
+            <!-- Run JS function on click: makes Cart visible -->
+            <div class="cart-btn-wrapper" onclick="toggleCart()"><img src="img/icon-cart.svg" aria-label="shopping cart" alt="" class="btn-cart btn-icons" />
+            <span id="cart-count" class="cart-count">1</span>   
+            </div>
+            
+            <img src="img/image-avatar.png" aria-label="my profile" alt=""class="btn-profile btn-icons"/>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        
+        
+
+        <!-- Components: Cart -->
+        <!-- Toggle cart visibility with JS -->
+        <div id="cart" class="cart display-none">
+            <div class="cart-header">
+                <p class="cart-title">Cart</p>
+                
+                <!-- Run JS function on click: hides Cart -->
+                <img class="btn-close-cart push" src="img/icon-close.svg" alt="Close Cart" onclick="closeCart()">
+            </div>
+
+            <div id="cart-contents" class="cart-contents">
+                <div class="cart-column-grid">
+                    <div><img class="img-cart-thumbnail" src="img/image-product-1-thumbnail.jpg" alt=""></div>
+                    
+                    <div class="cart-product-info">
+                        <p>Autumn Limited Edition...</p>
+                        <div class="cart-price-info">
+                            <span class="cart-unit-price">$125.00</span> x 
+                            <!-- Calculate with JS -->
+                            <span id="units-in-cart" class="cart-units">0</span> 
+                            <!-- Calculate with JS -->
+                            <span id="cart-total" class="cart-total">0</span></div>
+                    </div>
+                    
+                    <!-- Run JS function on click -->
+                    <img class="btn-cart-delete" src="img/icon-delete.svg" alt="Remove from cart" onclick="removeCartItem()">
+                </div>
+                
+                <button class="btn-add-to-cart cart-btn-height">Checkout</button>  
+            </div>
+
+            <!-- Toggle "empty-cart" visibility with JS: -->
+            <p id ="cart-empty" class="cart-empty">Your cart is empty.</p>
+        </div>
+
+        <div class="two-columns">
+            <div class="gallery">
+                <div class="mobile-caroussel">
+                    <img src="img/image-product-1.jpg" alt="" id="img-large" class="img-large" onclick="openLightbox()"/>
+                    
+                    <!-- Gallery Navigation buttons Mobile Only / Hidden on Desktop -->
+                    <img src="img/icon-previous.svg" alt="" aria-label="previous image" class="round-buttons mobile-previous" onclick="imgPrevious()">
+                    <img src="img/icon-next.svg" alt="" aria-label="next image" id="btn-next" class="round-buttons mobile-next" onclick="imgNext()">
+            
+                </div>
+                
+                <!-- Hidden on Mobile -->
+                <div id="thumbnail-grid" class="thumbnail-grid">
+                    <img class="thumb img-rounded thumbnail-selected" src="img/image-product-1-thumbnail.jpg" alt="" onclick="imgChange(1)">
+                    <img class="thumb img-rounded thumbnail-defaultrounded thumbnail-default" src="img/image-product-2-thumbnail.jpg" alt="" onclick="imgChange(2)">
+                    <img class="thumb img-rounded thumbnail-default" src="img/image-product-3-thumbnail.jpg" alt="" onclick="imgChange(3)">
+                    <img class="thumb img-rounded thumbnail-default" src="img/image-product-4-thumbnail.jpg" alt="" onclick="imgChange(4)">
+                </div>    
+            </div>
+
+            <div class="product-details">
+                <p class="company-title">Sneaker Company</p>
+                <h1 class="product-name">Fall Limited Edition Sneakers</h1>
+                <p class="product-description">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+
+                <div class="price-info">
+                    <p class="price" aria-label="current price">$125.00</p>
+                    <p class="deduction" aria-label="deduction">50%</p>
+                    <p class="old-price push" aria-label="old price">$250.00</p>
+                </div>
+
+                <div class="interactions noselect">
+                    <div class="adjust-units" aria-label="adjust number of products">
+                        <div id="minusUnits" class="btn-minus" aria-label="minus" onclick="removeUnit()"><img src="img/icon-minus.svg" alt=""></div>
+                        <span id="units-selected" class="number-of-units">0</span>
+                        <div id="plusUnits" class="btn-plus" aria-label="plus" onclick="addUnit()"><img src="img/icon-plus.svg" alt=""></div>
+                    </div>
+                    <btn class="btn-add-to-cart noselect" onclick="addToCart()"><img src="img/icon-cart.svg" alt="" class="icon-cart-btn" >Add to cart</btn>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script> 
+</body>
+</html>
